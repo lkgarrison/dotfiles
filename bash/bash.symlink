@@ -1,0 +1,13 @@
+# If not running interactively, don't do anything
+[[ "$-" != *i* ]] && return
+
+# custom aliases
+eval 'dircolors ~/.dir_colors'
+alias ls="ls --color"
+alias clear='printf "\033c"'
+
+# git aliases
+alias gs="git status"
+alias gd="git diff"
+alias gc="git commit"
+alias ga="git add"
