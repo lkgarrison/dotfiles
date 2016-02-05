@@ -38,7 +38,8 @@ Plugin 'scrooloose/syntastic'
 " vim-javascript
 Plugin 'pangloss/vim-javascript'
 " vim-jsx
-let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_javascript_checkers = ['jshint']
+Plugin 'Shutnik/jshint2.vim'
 
 " improved html indent and syntax highlighting
 " correctly indents non-standard html tags (ie angular: <custom-directive>)
