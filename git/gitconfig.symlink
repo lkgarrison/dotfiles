@@ -1,0 +1,27 @@
+[user]
+        name = Luke Garrison
+        email = lgarriso@nd.edu
+
+[core]
+        editor = /usr/bin/vim
+
+[credential]
+        helper = store
+
+[alias]
+        co = checkout
+        d = diff
+        s = status
+
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+        ui = true
+
+[push]
+        # See `git help config` (search for push.default)
+        # for more information on different options of the below setting.
+        #
+        # Setting to git 2.0 default to suppress warning message
+        default = simple
