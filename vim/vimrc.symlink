@@ -171,9 +171,6 @@ noremap q <NOP> " disables recording mode
 " Easily exit insert mode by typing 'jk'
 inoremap jk <esc>
 
-" Convert tabs to spaces for python files only
-autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
-
 :set tabstop=4
 :set shiftwidth=4
 set backspace=2 " make backspace work as expected and be able to move to next line above
