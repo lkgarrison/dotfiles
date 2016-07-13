@@ -11,3 +11,6 @@ alias gs="git status"
 alias gd="git diff"
 alias gc="git commit"
 alias ga="git add"
+
+# custom command prompt
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u:\[\033[01;34m\]\W\[\033[00m\]\$ '
