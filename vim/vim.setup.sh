@@ -35,3 +35,5 @@ else
 	echo ERROR: Monokai colors do not exist. Check .vimrc for correct plugin.
 fi
 
+# install flake8 for python syntax/styling checker
+eval pip install flake8
