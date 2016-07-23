@@ -11,6 +11,12 @@ alias gs="git status"
 alias gd="git diff"
 alias gc="git commit"
 alias ga="git add"
+alias gbl="git branch --list"
+
+# enable git tab-completion, including branch names
+if [ -f ~/.git-completion.bash  ]; then
+	. ~/.git-completion.bash
+fi
 
 # custom command prompt
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u:\[\033[01;34m\]\W\[\033[00m\]\$ '
