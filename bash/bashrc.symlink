@@ -12,6 +12,7 @@ alias gd="git diff"
 alias gc="git commit"
 alias ga="git add"
 alias gbl="git branch --list"
+alias gco="git checkout"
 
 # enable git tab-completion, including branch names
 if [ -f ~/.git-completion.bash  ]; then
