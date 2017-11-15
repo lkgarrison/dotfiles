@@ -19,5 +19,14 @@ if [ -f ~/.git-completion.bash  ]; then
 	. ~/.git-completion.bash
 fi
 
+# no duplicate entries in bash history
+export HISTCONTROL=ignoreboth:erasedups
+
 # custom command prompt
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u:\[\033[01;34m\]\W\[\033[00m\]\$ '
+# use https://ss64.com/bash/syntax-prompt.html to reference special symbols
+# NOTE: must wrap non-printed characters (control settings, like colors) between
+# \[ and \] or else command line wrapping for long lines won't work
+# the last few characters after the dollar sign are to reset the color back to
+# the default text color when the user types on the command line (non-printable setting)
+export PS1="\[\e[0;32m\][\u@\h \w]\$ \[\e[m\]"
+PROMPT_DIRTRIM=3
