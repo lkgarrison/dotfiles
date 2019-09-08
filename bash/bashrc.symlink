@@ -1,18 +1,12 @@
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
-# custom aliases
 eval 'dircolors ~/.dir_colors'
-alias ls="ls -FHG"
-alias clear='printf "\033c"'
 
-# git aliases
-alias gs="git status"
-alias gd="git diff"
-alias gc="git commit"
-alias ga="git add"
-alias gbl="git branch --list"
-alias gco="git checkout"
+# Load aliases
+if [ -f ~/.bash_aliases ]; then
+	. ~/.bash_aliases
+fi
 
 # enable git tab-completion, including branch names
 if [ -f ~/.git-completion.bash  ]; then

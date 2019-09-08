@@ -1,0 +1,10 @@
+alias ls="ls -FHG"
+alias clear='printf "\033c"'
+
+# git aliases
+alias gs="git status"
+alias gd="git diff"
+alias gc="git commit"
+alias ga="git add"
+alias gbl="git branch --list"
+alias gco="git checkout"
