@@ -22,6 +22,9 @@ fi
 # no duplicate entries in bash history
 export HISTCONTROL=ignoreboth:erasedups
 
+# Ensure color themes display in all terminals (mac, ubuntu, etc)
+export TERM=xterm-256color
+
 # custom command prompt
 # use https://ss64.com/bash/syntax-prompt.html to reference special symbols
 # NOTE: must wrap non-printed characters (control settings, like colors) between
@@ -30,3 +33,11 @@ export HISTCONTROL=ignoreboth:erasedups
 # the default text color when the user types on the command line (non-printable setting)
 export PS1="\[\e[0;32m\][\u@\h \w]\$ \[\e[m\]"
 PROMPT_DIRTRIM=3
+
+# Adds pipenv and other user-installed programs to path
+export PATH="$PATH:~/.local/bin"
+
+# Adds pyenv to path, ensures its version of python is available (i.e. to pipenv)
+export PATH="$PATH:/home/lkgarrison/.pyenv/bin"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"

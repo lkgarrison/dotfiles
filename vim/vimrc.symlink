@@ -129,6 +129,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " Color scheme for VIM
 " Must add colors in .vim/bundle/vim-colors-solarized/colors/solarized.vim to .vim/colors
 "
+set term=xterm-256color
 Plugin 'crusoexia/vim-monokai'
 syntax enable
 colorscheme monokai
