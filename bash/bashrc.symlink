@@ -3,7 +3,7 @@
 
 # custom aliases
 eval 'dircolors ~/.dir_colors'
-alias ls="ls --color"
+alias ls="ls -FHG"
 alias clear='printf "\033c"'
 
 # git aliases
@@ -28,5 +28,17 @@ export HISTCONTROL=ignoreboth:erasedups
 # \[ and \] or else command line wrapping for long lines won't work
 # the last few characters after the dollar sign are to reset the color back to
 # the default text color when the user types on the command line (non-printable setting)
-export PS1="\[\e[0;32m\][\u@\h \w]\$ \[\e[m\]"
+export PS1="\[\e[0;32m\][\u@\h \e[0;36m\w]\$ \[\e[m\]"
 PROMPT_DIRTRIM=3
+
+# Loads node version manager (install from https://github.com/nvm-sh/nvm)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export HISTCONTROL=ignoredups
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/lkgarrison/installs/google-cloud-sdk/path.bash.inc' ]; then source '/Users/lkgarrison/installs/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/lkgarrison/installs/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/lkgarrison/installs/google-cloud-sdk/completion.bash.inc'; fi
