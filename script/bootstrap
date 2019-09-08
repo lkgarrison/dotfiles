@@ -126,7 +126,7 @@ link_file () {
 }
 
 install_dotfiles () {
-  info 'installing dotfiles'
+  info 'Installing dotfiles'
 
   local overwrite_all=false backup_all=false skip_all=false
 
@@ -137,14 +137,29 @@ install_dotfiles () {
   done
 }
 
+execute_setup_scripts() {
+	info 'Executing setup scripts'
+	for setup_script in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.setup.sh')
+	do
+		# Do not exit if this setup script returns an error
+		set +e
+		(. $setup_script)
+		status=$?
+		set -e
+		setup_script_short_name=${setup_script//$DOTFILES_ROOT\//}
+		if [ "$status" == 0 ]
+		then
+			# echo "Executed $setup_script_short_name"
+			success "executed $setup_script_short_name"
+		else
+			fail "executing $setup_script_short_name failed with status $status"
+		fi
+	done
+}
+
 # setup_gitconfig
 install_dotfiles
-
-# run vim setup script
-# TODO: find all .setup.sh files and execute each one. Use this scripts success and fail functions to report status
-eval ~/.dotfiles/vim/vim.setup.sh
-eval ~/.dotfiles/bash/bashrc.setup.sh
-eval ~/.dotfiles/git/git.setup.sh
+execute_setup_scripts
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]

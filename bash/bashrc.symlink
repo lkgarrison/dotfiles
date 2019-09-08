@@ -31,7 +31,7 @@ export PS1="\[\e[0;32m\][\u@\h \e[0;36m\w]\$ \[\e[m\]"
 PROMPT_DIRTRIM=3
 
 # Adds pipenv and other user-installed programs to path
-export PATH="$PATH:~/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 # Adds pyenv to path, ensures its version of python is available (i.e. to pipenv)
 export PATH="$PATH:/home/lkgarrison/.pyenv/bin"
