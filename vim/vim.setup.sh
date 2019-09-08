@@ -36,4 +36,4 @@ else
 fi
 
 # install flake8 for python syntax/styling checker
-eval pip install flake8
+eval pip install -q flake8

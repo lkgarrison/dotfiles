@@ -39,18 +39,6 @@ Plugin 'mileszs/ack.vim'
 "asynchonous execution for vim
 Plugin 'Shougo/vimproc.vim'
 
-" syntax checking
-Plugin 'scrooloose/syntastic'
-
-" Flake8 python linter
-Plugin 'nvie/vim-flake8'
-
-" vim-javascript
-Plugin 'pangloss/vim-javascript'
-" vim-jsx
-let g:syntastic_javascript_checkers = ['jshint']
-Plugin 'Shutnik/jshint2.vim'
-
 " typescript plugin
 Plugin 'Quramy/tsuquyomi'
 Plugin 'leafgarland/typescript-vim' " syntax highlighting for *.ts files
@@ -135,6 +123,20 @@ syntax enable
 colorscheme monokai
 "background = 08 - another option for background color - dark blue-green-gray
 
+" Vim specific plugins that should not be used with neovim
+if !has('nvim')
+	" syntax checking
+	Plugin 'scrooloose/syntastic'
+
+	" Flake8 python linter
+	Plugin 'nvie/vim-flake8'
+
+	" vim-javascript
+	Plugin 'pangloss/vim-javascript'
+	" vim-jsx
+	let g:syntastic_javascript_checkers = ['jshint']
+	Plugin 'Shutnik/jshint2.vim'
+endif
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -152,20 +154,23 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 
-" Syntastic
-let g:syntastic_c_checkers = ['gcc']
-let g:syntastic_cpp_checkers = ['gcc']
-let g:syntastic_cpp_compiler_options = '-std=c++11'
-let g:syntastic_cpp_check_header = 1
-let g:syntastic_perl_checkers = ['perl']
-let g:syntastic_enable_perl_checker = 1
-let g:syntastic_python_checkers = ['flake8']
+" Vim-specific settings that should not be used with neovim
+if !has('nvim')
+	" Syntastic
+	let g:syntastic_c_checkers = ['gcc']
+	let g:syntastic_cpp_checkers = ['gcc']
+	let g:syntastic_cpp_compiler_options = '-std=c++11'
+	let g:syntastic_cpp_check_header = 1
+	let g:syntastic_perl_checkers = ['perl']
+	let g:syntastic_enable_perl_checker = 1
+	let g:syntastic_python_checkers = ['flake8']
 
-" Auto loc list opening
-let g:syntastic_auto_loc_list = 0
+	" Auto loc list opening
+	let g:syntastic_auto_loc_list = 0
+endif
 
 " Paste toggle
-set pastetoggle=<F2>
+set pastetoggle=<F3>
 
 " Easy window navigation
 map <C-h> <C-w>h
@@ -183,7 +188,7 @@ noremap <Right> <NOP>
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
-noremap q <NOP> " disables recording mode
+" noremap q <NOP> " disables recording mode
 
 " Easily exit insert mode by typing 'jk'
 inoremap jk <esc>
@@ -208,7 +213,6 @@ set showmatch     " shows matching parenthesis
 set smarttab      " insert tabs on the start of a line according to shiftwidth, not tabstop
 set incsearch     " show search matches as you type"
 set hlsearch      " highlight search terms
-
 
 " makes grading labs easier
 :set wrap
