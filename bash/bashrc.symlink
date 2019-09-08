@@ -3,6 +3,14 @@
 
 eval 'dircolors ~/.dir_colors'
 
+
+DOTFILES_ROOT="$HOME/.dotfiles"
+# Source all bash files (such as alias files in different directories)
+for bash_config_file in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.bash')
+do
+	source "$bash_config_file"
+done
+
 # Load aliases
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases

@@ -1,0 +1,6 @@
+alias gs="git status"
+alias gd="git diff"
+alias gc="git commit"
+alias ga="git add"
+alias gbl="git branch --list"
+alias gco="git checkout"
