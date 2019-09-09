@@ -1,2 +1,0 @@
-alias ls="ls -FHG"
-alias clear='printf "\033c"'
