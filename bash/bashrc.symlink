@@ -11,16 +11,6 @@ do
 	source "$bash_config_file"
 done
 
-# Load aliases
-if [ -f ~/.bash_aliases ]; then
-	. ~/.bash_aliases
-fi
-
-# enable git tab-completion, including branch names
-if [ -f ~/.git-completion.bash  ]; then
-	. ~/.git-completion.bash
-fi
-
 # no duplicate entries in bash history
 export HISTCONTROL=ignoreboth:erasedups
 # When the shell exits, append to the history file instead of overwriting it
